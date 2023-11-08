@@ -22,8 +22,9 @@ func TestNextToken(t *testing.T) {
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
 		{token.RBRACE, "}"},
+		{token.COMMA, ","},
 		{token.SEMICOLON, ";"},
-		{token.EOF, "("},
+		{token.EOF, ""},
 	}
 
 	// Initializing the lexer. This is a bit magical

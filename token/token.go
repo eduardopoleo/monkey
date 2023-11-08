@@ -13,7 +13,7 @@ const (
 	EOF       = "EOF"
 	IDENT     = "IDENT"
 	INT       = "INT"
-	ASSING    = "="
+	ASSIGN    = "="
 	PLUS      = "+"
 	COMMA     = ","
 	SEMICOLON = ";"

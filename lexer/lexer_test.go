@@ -8,7 +8,15 @@ import (
 
 func TestNextToken(t *testing.T) {
 	// Do not scape new lines etc
-	input := `=+(){},;`
+	input := `let five = 5;
+	let ten = 10;
+
+	let add = fn(x, y) {
+		x + y
+	};
+	
+	let result = add(five, ten);
+	`
 
 	// array of structs
 	// tokenType | literal
@@ -16,15 +24,35 @@ func TestNextToken(t *testing.T) {
 		expectedType    token.TokenType
 		expectedLiteral string
 	}{
+		{token.LET, "let"},
+		{token.IDENT, "five"},
 		{token.ASSIGN, "="},
-		{token.PLUS, "+"},
+		{token.INT, "5"},
+		{token.IDENT, "ten"},
+		{token.ASSIGN, "="},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.LET, "let"},
+		{token.IDENT, "add"},
+		{token.ASSIGN, "="},
+		{token.FUNCTION, "fn"},
 		{token.LPAREN, "("},
+		{token.IDENT, "x"},
+		{token.COMMA, ","},
+		{token.IDENT, "y"},
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
-		{token.RBRACE, "}"},
-		{token.COMMA, ","},
+		{token.PLUS, "+"},
+		{token.IDENT, "y"},
 		{token.SEMICOLON, ";"},
-		{token.EOF, ""},
+		{token.LET, "let"},
+		{token.IDENT, "result"},
+		{token.ASSIGN, "add"},
+		{token.IDENT, "five"},
+		{token.COMMA, ","},
+		{token.IDENT, "ten"},
+		{token.RPAREN, ")"},
+		{token.SEMICOLON, ";"},
 	}
 
 	// Initializing the lexer. This is a bit magical
@@ -35,7 +63,7 @@ func TestNextToken(t *testing.T) {
 		tok := l.NextToken()
 
 		if tok.Type != tt.expectedType {
-			t.Fatalf("test[%d] - toketype wong. expected=%q, got=%q",
+			t.Fatalf("test[%d] - toketype wrong. expected=%q, got=%q",
 				i, tt.expectedType, tok.Type)
 		}
 

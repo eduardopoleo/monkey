@@ -31,6 +31,10 @@ const (
 	INT       = "INT"
 	ASSIGN    = "="
 	PLUS      = "+"
+	MINUS     = "-"
+	BANG      = "!"
+	ASTERISK  = "*"
+	SLASH     = "/"
 	COMMA     = ","
 	SEMICOLON = ";"
 	LPAREN    = "("
@@ -39,4 +43,6 @@ const (
 	RBRACE    = "{"
 	FUNCTION  = "FUNCTION"
 	LET       = "LET"
+	LT        = "<"
+	GT        = ">"
 )

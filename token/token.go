@@ -8,8 +8,13 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
+	"true":   TRUE,
+	"false":  FALSE,
 }
 
 // This should be named lookup keyword
@@ -45,4 +50,9 @@ const (
 	LET       = "LET"
 	LT        = "<"
 	GT        = ">"
+	TRUE      = "true"
+	FALSE     = "false"
+	IF        = "if"
+	ELSE      = "else"
+	RETURN    = "return"
 )

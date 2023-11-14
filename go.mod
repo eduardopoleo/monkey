@@ -1,3 +1,3 @@
-module github.com/eduardopoleo/monkey
+module monkey
 
 go 1.20

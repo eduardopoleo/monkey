@@ -55,4 +55,6 @@ const (
 	IF        = "if"
 	ELSE      = "else"
 	RETURN    = "return"
+	EQ        = "=="
+	NOT_EQ    = "!="
 )
